@@ -1,6 +1,14 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
 
+const cors = require("cors");
+app.use(
+  cors({
+    origin: "https://sugarsync-7dnukumtq-harshh04s-projects.vercel.app",
+    credentials: true,
+  })
+);
+
 const requireAuth = async (req, res, next) => {
   //verify authentication
   const { authorization } = req.headers;
